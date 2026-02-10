@@ -1,4 +1,4 @@
-def euclid_alg(a: int, b: int):
+def euclid_alg(a: int, b: int) -> int:
     # set r_{-2}, r_{-1}
     r = dict()
     r0 = max(a, b)
