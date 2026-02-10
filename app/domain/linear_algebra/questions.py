@@ -1,11 +1,11 @@
 from random import randint
 
-from app.domain.exceptions import QuestionParamError
-from app.domain.question_params import Params, ParamsDict
-from app.domain.questions import Question
-from app.domain.topics import Topic
-from app.domain.validators import validate_int
-from app.domain.content.linear_algebra import symbolic_matrix_power
+from app.domain.base.exceptions import QuestionParamError
+from app.domain.base.question_params import Params, ParamsDict
+from app.domain.base.questions import Question
+from app.domain.base.topics import Topic
+from app.domain.base.validators import validate_int
+from app.domain.linear_algebra.algorithms import symbolic_matrix_power
 
 
 class MatrixMultParams(Params):

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from app.domain.exceptions import QuestionError
-from app.domain.topics import Topic
+from app.domain.base.exceptions import QuestionError
+from app.domain.base.topics import Topic
 
 
 class RegistryDict:

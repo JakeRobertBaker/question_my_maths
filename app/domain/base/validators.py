@@ -1,4 +1,4 @@
-from app.domain.exceptions import QuestionParamError
+from app.domain.base.exceptions import QuestionParamError
 
 
 def validate_int(x) -> int:

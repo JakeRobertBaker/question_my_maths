@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from app.domain.exceptions import (
+from app.domain.base.exceptions import (
     QuestionIrrelevantParams,
     QuestionMissingParams,
 )
