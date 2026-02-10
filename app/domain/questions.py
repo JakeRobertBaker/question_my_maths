@@ -25,9 +25,7 @@ class RegistryDict:
 
     def get(self, topic: Topic, name: str) -> type[Question]:
         if name not in self._data[topic]:
-            raise QuestionError(
-                f"No question '{name}' found for topic '{topic.value}'"
-            )
+            raise QuestionError(f"No question '{name}' found for topic '{topic.value}'")
         return self._data[topic][name]
 
     def get_all(self) -> dict[Topic, dict[str, type[Question]]]:
@@ -60,11 +58,16 @@ class Question(ABC):
     def get_all_questions(cls) -> dict[Topic, dict[str, type[Question]]]:
         return cls._registry.get_all()
 
+    _required_attrs = ("answer", "text")
+
     def __init__(self, params: dict | None = None):
         self._internal_setup(params)
+        missing = [a for a in self._required_attrs if not hasattr(self, a)]
+        if missing:
+            raise TypeError(
+                f"{type(self).__name__}._internal_setup must set: {missing}"
+            )
 
     @abstractmethod
     def _internal_setup(self, params: dict | None = None):
         pass
-
-
